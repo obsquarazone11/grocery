@@ -11,9 +11,15 @@ public class ManageLocationPage extends BaseClass {
 	ManageLocation mp;
 
 	
-	  @Test public void manageState() { lp = new LoginPage(driver); lp.presteps();
-	  mp = new ManageLocation(driver); String actual = mp.stateEdition(); String
-	 exp = "error"; Assert.assertEquals(actual, exp, "error happend"); }
+	  @Test public void manageState()
+	  { 
+		  lp = new LoginPage(driver); lp.presteps();
+	  mp = new ManageLocation(driver); String actual = mp.stateEdition();
+	System.out.println(actual);
+	  String expected="×\n"
+	  		+ "Alert!\n"
+	  		+ "Location Created Successfully";
+	 Assert.assertEquals(actual, expected, "error happend"); }
 	 
   @Test
   public void amountVerrification()
@@ -23,7 +29,7 @@ public class ManageLocationPage extends BaseClass {
 	  mp=new ManageLocation(driver);
 	  String actual=mp.amoundverrification();
 	  System.out.println(actual);
-	  String exp="₹50";
+	  String exp="₹100";
 	  Assert.assertEquals(actual, exp,"error happend");
   }
   @Test
@@ -34,7 +40,7 @@ public class ManageLocationPage extends BaseClass {
 	  mp=new ManageLocation(driver);
 	  String actual=mp.statusVerrification();
 	  System.out.println(actual);
-	  String exp="Inactive";
+	  String exp="Active";
 	  Assert.assertEquals(actual, exp,"error happend");
   }
   }

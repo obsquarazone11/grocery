@@ -42,13 +42,15 @@ public class BaseClass {
 					System.getProperty("user.dir") + prop.getProperty("chromeDriverPath"));
 
 			driver = new ChromeDriver();
-		} /*
-			 * else if (browser.equals("edge")) { testBasic();
-			 * 
-			 * System.setProperty(prop.getProperty("edgeBrowserDriver"),
-			 * System.getProperty("user.dir") + prop.getProperty("edgeDriverPath")); driver
-			 * = new EdgeDriver(); }
-			 */
+		}
+		/*
+		 * else if (browser.equals("edge")) { testBasic();
+		 * 
+		 * System.setProperty(prop.getProperty("edgeBrowserDriver"),
+		 * System.getProperty("user.dir") + prop.getProperty("edgeDriverPath")); driver
+		 * = new EdgeDriver(); }
+		 */
+			
 		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
 		
 		driver.manage().window().maximize();
@@ -59,13 +61,8 @@ public class BaseClass {
 	}
 
 	@AfterMethod
-	public void aftermethod()
-	{
-		driver.close();
-	}
 	
-
-	/*public void aftermethod(ITestResult iTestResult) throws IOException {
+	public void aftermethod(ITestResult iTestResult) throws IOException {
 
 		if (iTestResult.getStatus() == iTestResult.FAILURE) {
 			sc = new Screenshotcapture();
@@ -75,5 +72,5 @@ public class BaseClass {
 		driver.close();
 
 	
-}*/
+	}
 }

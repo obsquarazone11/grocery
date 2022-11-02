@@ -9,12 +9,12 @@
       </run>
     </groups>
     <classes>
-      <class name="testcases.ManagePushNotificationPage">
+      <class name="testcases.ManageExpensePage">
         <methods>
-          <include name="testexcelmessageVerrification"/>
+          <include name="imageHandling"/>
           <include name="beforemethod"/>
         </methods>
-      </class> <!-- testcases.ManagePushNotificationPage -->
+      </class> <!-- testcases.ManageExpensePage -->
     </classes>
   </test> <!-- My Test Suite(failed) -->
 </suite> <!-- Failed suite [My Group Suite] -->

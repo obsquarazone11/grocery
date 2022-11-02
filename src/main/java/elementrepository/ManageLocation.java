@@ -7,8 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.Synchronisation;
+
 public class ManageLocation {
 	WebDriver driver;
+	Synchronisation s=new Synchronisation();
 	public ManageLocation (WebDriver driver)
 	{
 		this.driver=driver;
@@ -18,7 +21,7 @@ public class ManageLocation {
 	}
 	@FindBy(xpath="//ul/li[9]/a/p")
 	WebElement manageloc;
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/Location/edit?edit=502&page_ad=1']")
+	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/Location/add']")
 			WebElement edit;
 	@FindBy(id="country_id")
 	WebElement dropdp;
@@ -28,12 +31,14 @@ public class ManageLocation {
 	WebElement loc;
 	@FindBy(xpath="//button[@class='btn btn-danger']")
 	WebElement update;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")////div[2]/div/div
 	WebElement alert;
 	@FindBy(xpath="//table/tbody/tr[20]/td[4]")
 	WebElement amt;
 	@FindBy(xpath="//table/tbody/tr[2]/td[5]/a/span")
 	WebElement status;
+	@FindBy(id="delivery")
+	WebElement charge;
 	public String stateEdition()
 	{
 		manageloc.click();
@@ -45,6 +50,8 @@ public class ManageLocation {
 		s1.selectByVisibleText("Bristol");
 		loc.clear();
 		loc.sendKeys("kerala");
+		charge.sendKeys("1000");
+		
 		update.click();
 		return alert.getText();
 }

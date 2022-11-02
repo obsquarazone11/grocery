@@ -1,10 +1,18 @@
 package utilities;
 
-	import java.util.ArrayList;
+	import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.List;
 
-	import org.openqa.selenium.WebElement;
-	import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 	public class GeneralUtilities {
 
@@ -25,9 +33,9 @@ import java.util.List;
 		public void sendKey(WebElement element, String s) {
 			element.sendKeys(s);
 		}
-public String getCss(WebElement element,String att)
+public String getStylePropertyvalidation(WebElement element,String att)
 {
-	return element.getAttribute(att);
+	return element.getCssValue(att);
 }
 		public String getToolTip(WebElement element) {
 			return element.getAttribute("title");
@@ -75,14 +83,89 @@ public String getCss(WebElement element,String att)
 
 		}
 		List<String> list=new ArrayList<String>();
-		public List addList(String s)
+		public List<String> addList(String s)
 		{
 			
 			list.add(s);
 			return list;
 		}
+		public void alertHandlingaccept(WebDriver driver) {
+			driver.switchTo().alert().accept();
+		}
+
+		public String alerttext(WebDriver driver) {
+			return (driver.switchTo().alert().getText());
+		}
+
+		public void scrollDownOperation(WebDriver driver) {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,2500)");
+		}
+		public void fileUpload(String path, WebElement element, WebDriver driver) throws AWTException {
+			Robot rob = new Robot();
+
+			Actions a = new Actions(driver);
+			a.moveToElement(element).click().perform();
+
+			StringSelection ss = new StringSelection(path);
+			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+			rob.delay(250);
+
+			rob.keyPress(KeyEvent.VK_CONTROL);
+			rob.keyPress(KeyEvent.VK_V);
+			rob.keyRelease(KeyEvent.VK_V);
+			rob.keyRelease(KeyEvent.VK_CONTROL);
+			rob.keyPress(KeyEvent.VK_ENTER);
+			rob.delay(250);
+			rob.keyRelease(KeyEvent.VK_ENTER);
+		}
+		public boolean checkCheckBoxSelected(WebElement element) {
+			boolean select = element.isSelected();
+			return select;
+
+		}
+		public boolean elementDisplayed(WebElement element) {
+			boolean textDisplay = element.isDisplayed();
+			return textDisplay;
+		}
+
 		
-			
+		public void dragandDrop(WebElement source, WebElement destination, WebDriver driver) {
+			Actions a = new Actions(driver);
+			a.dragAndDrop(source, destination).perform();
+		}
+		//get text
+		public boolean getElementTextList(List<WebElement> actuallist, String element) {
+
+				boolean value = true;
+				for (int i = 0; i < actuallist.size(); i++) {
+
+					String text = actuallist.get(i).getText();
+
+					if (!text.equals(element))
+
+					{
+						value = false;
+
+					}
+				}
+		return value;
+			}
+
+
+		//list 
+		public boolean compareLists(List<String> actuallist, List<String> expectedlist) {
+				boolean value = true;
+				for (int i = 0; i < actuallist.size(); i++) {
+					if (!actuallist.get(i).equals(expectedlist.get(i))) {
+						value = false;
+
+					}
+				}
+
+				return value;
+			}
+
 
 	}
 

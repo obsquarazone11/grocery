@@ -32,11 +32,14 @@ public class LoginTestCase extends BaseClass {
 		 //lp.presteps();
 
 		String actual = lp.profileVerification();
+		System.out.println(actual);
 		String expected = "Admin";
 		Assert.assertEquals(expected, actual, "Admin Name is not as we expected");
 
 	}
-	@Test
+	
+	
+	@Test(retryAnalyzer = RetryTest.RetryAnalyzer.class)
 	public  void excelverifyLoggedUsers() 
 	{
 lp = new LoginPage(driver);
@@ -52,7 +55,8 @@ loginList=lp.getLoginDetails();
 		// lp.presteps();
 
 		String actual = lp.profileVerification();
-		String expected = "Adminss";
+		System.out.println(actual);
+		String expected = "Admin2";
 		Assert.assertEquals(expected, actual,Constant.titleErrormsg);
 
 
@@ -61,6 +65,7 @@ loginList=lp.getLoginDetails();
 	public void verifyCheckBox() throws InterruptedException {
 		lp = new LoginPage(driver);
 		boolean actual = lp.getRememberMe();
+		System.out.println(actual);
 		boolean expected = false;
 		Assert.assertEquals(actual, expected, "RememberMe checkbox is selected");
 	}

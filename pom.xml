@@ -22,7 +22,7 @@
 				<version>3.0.0-M5</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>report2.xml</suiteXmlFile>
+						<suiteXmlFile>testSuite.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

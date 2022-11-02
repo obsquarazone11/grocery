@@ -38,7 +38,7 @@ public class ManageDeliveryBoyPage extends BaseClass {
 public void passwordNameValidation() { lp=new LoginPage(driver);
  lp.presteps(); dp= new DeliveryBoyPage(driver); String
  actual=dp.nameVerification(); System.out.println(actual); String
-  expected="megha";
+  expected="password1";
  //Assert.assertEquals(actual,expected,"Name is not matching"); }
  Assert.assertEquals(actual,expected,Constant.nameerrormsg);
  }

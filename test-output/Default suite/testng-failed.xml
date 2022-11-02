@@ -5,10 +5,12 @@
     <classes>
       <class name="testcases.ManageordersPage">
         <methods>
-          <include name="function"/>
+          <include name="listsortingchecking"/>
           <include name="beforemethod"/>
+          <include name="payamentSelection"/>
+          <include name="listcompare"/>
           <include name="aftermethod"/>
-          <include name="f"/>
+          <include name="chkElementsStatus"/>
         </methods>
       </class> <!-- testcases.ManageordersPage -->
     </classes>

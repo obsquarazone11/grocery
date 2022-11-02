@@ -4,31 +4,13 @@
   <test thread-count="5" name="ChromeTest(failed)">
     <parameter name="Browser" value="chrome"/>
     <classes>
-      <class name="testcases.ManageDeliveryBoyPage">
+      <class name="testcases.ManageordersPage">
         <methods>
-          <include name="verifyingResetButtonColor"/>
-          <include name="passwordNameValidation"/>
           <include name="beforemethod"/>
           <include name="aftermethod"/>
-          <include name="passwordToolTipValidation"/>
-          <include name="searchnameVallidation"/>
+          <include name="chkElementsStatus" invocation-numbers="1"/>
         </methods>
-      </class> <!-- testcases.ManageDeliveryBoyPage -->
+      </class> <!-- testcases.ManageordersPage -->
     </classes>
   </test> <!-- ChromeTest(failed) -->
-  <test thread-count="5" name="EdgeTest(failed)">
-    <parameter name="Browser" value="edge"/>
-    <classes>
-      <class name="testcases.ManageDeliveryBoyPage">
-        <methods>
-          <include name="verifyingResetButtonColor"/>
-          <include name="passwordNameValidation"/>
-          <include name="beforemethod"/>
-          <include name="aftermethod"/>
-          <include name="passwordToolTipValidation"/>
-          <include name="searchnameVallidation"/>
-        </methods>
-      </class> <!-- testcases.ManageDeliveryBoyPage -->
-    </classes>
-  </test> <!-- EdgeTest(failed) -->
 </suite> <!-- Failed suite [My Testsuite] -->

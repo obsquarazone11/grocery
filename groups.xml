@@ -9,9 +9,9 @@
 </run>
 </groups>
 <classes>
-<class name="testcases.ManagePushNotificationPage">
+<class name="testcases.ManageExpensePage">
 <methods>
-<include name="testexcelmessageVerrification"/>
+<include name="imageHandling"/>
 
 </methods>
 </class>

@@ -11,7 +11,7 @@ import utilities.ExcelRead;
 import utilities.GeneralUtilities;
 
 public class LoginPage {
-	GeneralUtilities gu;
+	GeneralUtilities gu=new GeneralUtilities();
 	WebDriver driver;
 	ExcelRead excelUtility;
 
@@ -69,6 +69,7 @@ public class LoginPage {
 	}
 	 public boolean getRememberMe()
 	 {
+		// return verificationOfRememberCheckBox.isSelected();
 		 return gu.isSelectable(verificationOfRememberCheckBox);
 	 }
 

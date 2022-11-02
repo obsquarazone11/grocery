@@ -56,15 +56,18 @@ public String bgcolorverrification()
 {
 	clickpnotification();
 	//return send.getCssValue("background-color");
-	return gu.getCss(send,"background-color");
+	return gu.getStylePropertyvalidation(send,"background-color");
 }
 
 
- public String messageVerrification(String s,String s1) throws
- InterruptedException { clickpnotification(); //title.sendKeys(s);
-  gu.sendKey(title,"sample"); //desc.sendKeys(s1);
- gu.sendKey(desc,"sample desc"); //send.click(); gu.getClickElement(send);
-  Thread.sleep(3000); return message.getText(); 
+ public String messageVerrification(String s,String s1) throws InterruptedException 
+ { 
+	 clickpnotification(); //title.sendKeys(s);
+  gu.sendKey(title,s); //desc.sendKeys(s1);
+ gu.sendKey(desc,s1); //send.click(); 
+ gu.getClickElement(send);
+  Thread.sleep(3000);
+  return message.getText(); 
   //return gu.getElementText(message);
  }
 public String excelmessageVerrification() throws IOException

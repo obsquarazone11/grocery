@@ -20,6 +20,8 @@ public class ManageordersPage extends BaseClass {
 
 	LoginPage lp;
 	ManageOrders mo;
+
+	 
 	
 	  @Test
 	  public void payamentSelection() throws InterruptedException
@@ -47,6 +49,7 @@ public class ManageordersPage extends BaseClass {
 		  mo=new ManageOrders (driver);
 		  List<String>expected=mo.getList();
 		  String actual=mo.listSelectedvalue(value);
+		  System.out.println(actual);
 		  for(int i=0;i<expected.size();i++)
 		  {
 				 Assert.assertEquals(actual,expected.get(i),"Selection Error");
@@ -56,16 +59,39 @@ public class ManageordersPage extends BaseClass {
 		System.out.println("Hai");
 
 }
-	  @Test(groups={"SmokeTest"})
+	 @Test(groups={"SmokeTest"})
+	 // @Test
 	  public void listcompare()
 	  {
 		  lp=new LoginPage(driver);
 		  lp.presteps();
 		  mo=new ManageOrders (driver);
-		  List<String>expected=mo.getList();
-		  List<WebElement> actual=mo.dropdwnvalue();
-		  for(int i=0;i<expected.size();i++)
-		  Assert.assertEquals(actual.get(i).getText(),expected,"Selection Error");
+		  List<String>actual=mo.getList();
+		  //System.out.println(actual);
+		  
+		 List<String>exp=mo.strlistvalue();
+		 System.out.println(exp);
 
+		
+			  if(actual.size()==exp.size())
+			  { 
+				  for(int i=0;i<exp.size();i++)
+				  {
+			  Assert.assertEquals(actual.get(i),exp.get(i),"list is not matching");
+			  }
+			  }
+	  }
+			 
+			
+			//@Test(groups={"SmokeTest"})
+			 public void listsortingchecking()
+			 {
+				 lp=new LoginPage(driver);
+				  lp.presteps();
+				  mo=new ManageOrders (driver);
+				  boolean actual=mo.listSortedcheck();
+				  boolean exp=false;
+				  Assert.assertEquals(actual,exp,"list is not sorted");
+				  
 }
 }
