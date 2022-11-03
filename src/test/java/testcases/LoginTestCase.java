@@ -56,7 +56,8 @@ loginList=lp.getLoginDetails();
 
 		String actual = lp.profileVerification();
 		System.out.println(actual);
-		String expected = "Admin2";
+		String expected = "Admin";
+		//String expected = "Admin2";
 		Assert.assertEquals(expected, actual,Constant.titleErrormsg);
 
 

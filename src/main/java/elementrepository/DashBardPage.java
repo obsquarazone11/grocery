@@ -5,8 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.GeneralUtilities;
+
 public class DashBardPage {
 	WebDriver driver;
+	GeneralUtilities gu=new GeneralUtilities();
 	public DashBardPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -20,13 +23,17 @@ public class DashBardPage {
 	
 	public String gettingCssvalue() 
 	{
-		home.click();
-	return home.getCssValue("color");
+		//home.click();
+		gu.getClickElement(home);
+	//return home.getCssValue("color");
+	return gu.getStylePropertyvalidation(home,"color");
 	
 }
 	public String verrifyprofile()
 	{
-		logname.click();
-		return logname.getText();
+		//logname.click();
+		gu.getClickElement(logname);
+		return gu.getElementText(logname);
+		//return logname.getText();
 	}
 }

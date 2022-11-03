@@ -86,7 +86,7 @@ public String getStylePropertyvalidation(WebElement element,String att)
 		public List<String> addList(String s)
 		{
 			
-			list.add(s);
+	list.add(s);
 			return list;
 		}
 		public void alertHandlingaccept(WebDriver driver) {
