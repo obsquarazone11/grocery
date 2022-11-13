@@ -74,8 +74,8 @@ public class ManageExpensePage extends BaseClass {
 		lp = new LoginPage(driver);
 		lp.presteps();
 		mp = new ManageExpense(driver);
-		String path = System.getProperty("user.dir") + prop.getProperty("imgPath1");
-		//String path = System.getProperty("user.dir") + "//src//main//resources//images//Screenshot (2).png";
+		//String path = System.getProperty("user.dir") + prop.getProperty("imgPath1");
+		String path = System.getProperty("user.dir") + "//src//main//resources//images//Screenshot (2).png";
 		String actual=mp.imageuploading(path);
 		System.out.println(actual);
 		String expected = "×/n" + "Alert!/n" + " Expense Record Updated Successfully";

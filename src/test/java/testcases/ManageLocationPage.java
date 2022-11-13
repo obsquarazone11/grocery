@@ -30,7 +30,7 @@ public class ManageLocationPage extends BaseClass {
 	  mp=new ManageLocation(driver);
 	  String actual=mp.amoundverrification();
 	  System.out.println(actual);
-	  String exp="₹225";
+	  String exp="₹250";
 	  Assert.assertEquals(actual, exp,Constant.SelectError);
   }
   @Test

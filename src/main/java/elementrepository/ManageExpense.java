@@ -36,11 +36,11 @@ WebElement manageexp;
 WebElement search;
 @FindBy(xpath="//a[@class=\'btn btn-rounded btn-danger\']")
 WebElement neww;
-@FindBy(xpath="//table/tbody/tr[1]/td[9]/a[1]/i")
+@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm'][1]/tbody[1]/tr[1]/td[9]/a[1]/i[1]")
 WebElement changebutton;
 @FindBy(xpath="//input[@class='form-control date']")
 WebElement datepicker;
-@FindBy(xpath="//button[@class='btn btn-danger']")
+@FindBy(xpath="//button[normalize-space()='Update']")
 WebElement update;
 @FindBy(xpath="//input[@type='file']")
 WebElement choosefile;
@@ -122,11 +122,12 @@ public String imageuploading(String s) throws AWTException, InterruptedException
 {
 	clickManageEx();
 	gu.getClickElement(changebutton);
-	
+	Thread.sleep(4000);
+	JavascriptExecutor jse = (JavascriptExecutor)driver;
+	jse.executeScript("scroll(0, 250)");
 	fl=new FileHandling();
 	fl.fileUpload(s,choosefile,driver);
-	update.click();
-	
+	jse.executeScript("arguments[0].click();", update);
 	return gu.getElementText(msg);
 	
 }

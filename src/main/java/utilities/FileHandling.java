@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -13,7 +14,7 @@ import org.openqa.selenium.interactions.Actions;
 public class FileHandling {
 	public void fileUpload(String path, WebElement element, WebDriver driver) throws AWTException {
 		Robot rob = new Robot();
-
+		
 		Actions a = new Actions(driver);
 		a.moveToElement(element).click().perform();
 
@@ -28,5 +29,6 @@ public class FileHandling {
 		rob.keyPress(KeyEvent.VK_ENTER);
 		rob.delay(250);
 		rob.keyRelease(KeyEvent.VK_ENTER);
-	}
+	
+}
 }
