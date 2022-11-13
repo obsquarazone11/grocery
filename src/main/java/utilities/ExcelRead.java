@@ -15,10 +15,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ExcelRead {
 	FileInputStream XSSFWorkbook;
 
-	public List<String> readDataFromExcel(String sheetName) {
+	public List<String> readDataFromExcel(String sheetName,String path) {
 		List<String> list = new ArrayList<String>();
 		try {
-			String path = System.getProperty("user.dir") + "//src//main//resources//Excelfiles//Testdata.xlsx";
+	
 			FileInputStream file = new FileInputStream(new File(path));
 
 			XSSFWorkbook workbook = new XSSFWorkbook(file);

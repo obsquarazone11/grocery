@@ -6,8 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.GeneralUtilities;
+
 public class MobileSlider {
 WebDriver driver;
+GeneralUtilities gu = new GeneralUtilities();
 public MobileSlider(WebDriver driver)
 {
 	this.driver=driver;
@@ -37,22 +40,30 @@ WebElement msg;
 
 public String getTitle()
 {
-	mobileslider.click();
-	return title.getText();
+	//mobileslider.click();
+	//return title.getText();
+	gu.getClickElement(mobileslider);
+	return gu.getElementText(title);
 	}
 public  String statusCheck()
 {
-	mobileslider.click();
-	return status.getText();
+	//mobileslider.click();
+	//return status.getText();
+	gu.getClickElement(mobileslider);
+	return gu.getElementText(status);
 }
 public boolean imageCheck(String s) throws InterruptedException
 {
 	
-	mobileslider.click();
-	edit.click();
-	choosefile.sendKeys(s);
-	Thread.sleep(3000);
-	JavascriptExecutor jse = (JavascriptExecutor)driver;
+	//mobileslider.click();
+	gu.getClickElement(mobileslider);
+	//edit.click();
+	gu.getClickElement(edit);
+	gu.sendKey(choosefile,s);
+	//choosefile.sendKeys(s);
+	//Thread.sleep(3000);
+	gu.mediumDelay(3000);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
 	jse.executeScript("scroll(0, 250)"); // if the element is on bottom.
 	jse.executeScript("arguments[0].click();", update);
 	//update.click();
@@ -62,17 +73,17 @@ public boolean imageCheck(String s) throws InterruptedException
 }
 public String wrongimageCheck(String s) throws InterruptedException
 {
-	
-	mobileslider.click();
-	edit.click();
-	choosefile.sendKeys(s);
-	Thread.sleep(3000);
+	gu.getClickElement(mobileslider);
+	gu.getClickElement(edit);
+	gu.sendKey(choosefile,s);
+	gu.mediumDelay(3000);
 	JavascriptExecutor jse = (JavascriptExecutor)driver;
 	jse.executeScript("scroll(0, 250)"); // if the element is on bottom.
 	jse.executeScript("arguments[0].click();", update);
 	//update.click();
 	
-	return msg.getText();
+	//return msg.getText();
+	return gu.getElementText(msg);
 	
 }
 }

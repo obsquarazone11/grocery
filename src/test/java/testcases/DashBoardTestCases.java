@@ -3,6 +3,7 @@ package testcases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constants.Constant;
 import elementrepository.DashBardPage;
 import elementrepository.LoginPage;
 
@@ -21,7 +22,7 @@ public class DashBoardTestCases extends BaseClass{
  String actual=dp.verrifyprofile();
  String expected="Admin";
  
-	Assert.assertEquals(actual, expected,"name is not as expected");
+	Assert.assertEquals(actual, expected,Constant.nameerrormsg);
 }
   @Test
 public void colorverification()throws InterruptedException
@@ -34,7 +35,7 @@ public void colorverification()throws InterruptedException
 	System.out.println(actual);
 	String expected="rgba(0, 123, 255, 1)";
 	
-	Assert.assertEquals(actual, expected,"color is not as expected");
+	Assert.assertEquals(actual, expected,Constant.bgcolorerrormsg);
 	
 			}
   

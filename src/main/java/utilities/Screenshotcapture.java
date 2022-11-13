@@ -9,8 +9,9 @@
 	import org.openqa.selenium.io.FileHandler;
 
 	public class Screenshotcapture {
-		public void Screenshotcapturefunc(WebDriver driver, String name) throws IOException {
-
+		
+public void Screenshotcapturefunc(WebDriver driver, String name) throws IOException {
+		
 			TakesScreenshot scrShot = (TakesScreenshot) driver;//instantiate the interface object//take the screenshot using TakesScreenshotInterface & getScreenshotAs method
 			File screenShot = scrShot.getScreenshotAs(OutputType.FILE);//it will take screenshot and store it in javas buffer memory
 
@@ -21,6 +22,7 @@
 
 			File finalDestination = new File(System.getProperty("user.dir") + "\\ScreenShots\\" + name + ".png");
 			FileHandler.copy(screenShot, finalDestination);
+			
 		}
 	}
 

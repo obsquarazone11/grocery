@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [RetryFailedTests]">
   <listeners>
-    <listener class-name="testcases.AnnotationTransformer"/>
+    <listener class-name="retryTest.AnnotationTransformer"/>
   </listeners>
   <test thread-count="5" name="RetryMulitple(failed)">
     <parameter name="Browser" value="chrome"/>
@@ -10,7 +10,6 @@
       <class name="testcases.LoginTestCase">
         <methods>
           <include name="beforemethod"/>
-          <include name="verifyLoggedUsers" invocation-numbers="1 1 1 1 1"/>
           <include name="aftermethod"/>
           <include name="excelverifyLoggedUsers"/>
         </methods>

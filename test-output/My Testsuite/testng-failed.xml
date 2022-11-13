@@ -4,13 +4,13 @@
   <test thread-count="5" name="ChromeTest(failed)">
     <parameter name="Browser" value="chrome"/>
     <classes>
-      <class name="testcases.ManageordersPage">
+      <class name="testcases.ManageExpensePage">
         <methods>
           <include name="beforemethod"/>
+          <include name="imageuputilities"/>
           <include name="aftermethod"/>
-          <include name="chkElementsStatus" invocation-numbers="1"/>
         </methods>
-      </class> <!-- testcases.ManageordersPage -->
+      </class> <!-- testcases.ManageExpensePage -->
     </classes>
   </test> <!-- ChromeTest(failed) -->
 </suite> <!-- Failed suite [My Testsuite] -->

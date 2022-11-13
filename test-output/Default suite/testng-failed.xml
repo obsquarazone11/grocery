@@ -3,16 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcases.ManageordersPage">
+      <class name="testcases.ManageExpensePage">
         <methods>
-          <include name="listsortingchecking"/>
+          <include name="callenderHandling"/>
           <include name="beforemethod"/>
-          <include name="payamentSelection"/>
-          <include name="listcompare"/>
           <include name="aftermethod"/>
-          <include name="chkElementsStatus"/>
         </methods>
-      </class> <!-- testcases.ManageordersPage -->
+      </class> <!-- testcases.ManageExpensePage -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

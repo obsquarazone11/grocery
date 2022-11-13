@@ -1,17 +1,26 @@
 package elementrepository;
 
+import java.awt.AWTException;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.FileHandling;
+import utilities.GeneralUtilities;
+import utilities.Synchronisation;
+
 public class ManageExpense {
 WebDriver driver;
+FileHandling fl;
+Synchronisation s=new  Synchronisation();
+GeneralUtilities gu=new GeneralUtilities();
 public  ManageExpense(WebDriver driver)
 {
 	this.driver=driver;
@@ -39,25 +48,29 @@ WebElement choosefile;
 WebElement msg;
 public void clickManageEx()
 {
-	manageex.click();
-	manageexp.click();
+	//manageex.click();
+	gu.getClickElement(manageex);
+	//manageexp.click();
+	s.Elementvisible(driver,"//div/nav/ul/li[2]/ul[2]/li/a/p");
+	gu.getClickElement(manageexp);
 }
 public String searchButtonColorCheck()
 {
 	clickManageEx();
-	
-	return search.getCssValue("color"); //#1f2d3d;//class="btn btn-rounded btn-danger"
+	return gu.getStylePropertyvalidation(search,"color");
+	//return search.getCssValue("color"); 
+	//#1f2d3d;//class="btn btn-rounded btn-danger"
 	}
 
 public String newButtonTextCheck() throws InterruptedException
 {
-	Thread.sleep(3000);
+	gu.mediumDelay(300);
 	clickManageEx();
-	
-	return neww.getText(); //#1f2d3d;//class="btn btn-rounded btn-danger"
+	return gu.getElementText(neww);
+	//return neww.getText();//#1f2d3d;//class="btn btn-rounded btn-danger"
 	}
 
-public String calenderfunction(String exyr,String exmonth,String exdate)
+public boolean calenderfunction(String exyr,String exmonth,String exdate)
 {
 	clickManageEx();
 	changebutton.click();
@@ -83,22 +96,38 @@ public String calenderfunction(String exyr,String exmonth,String exdate)
 			}
 		}
 
-driver.navigate().refresh();
-	return datepicker.getText();	
+    
+    
+return datepicker.isEnabled();
 
 }
+    
 public String imageUpload(String s) throws InterruptedException
 {
 	clickManageEx();
-	changebutton.click();
-	
-	choosefile.sendKeys(s);
+	//changebutton.click();
+	gu.getClickElement(changebutton);
+	gu.sendKey(choosefile,s);
+	//choosefile.sendKeys(s);
 	Thread.sleep(3000);
 	JavascriptExecutor jse = (JavascriptExecutor)driver;
 	jse.executeScript("scroll(0, 250)"); // if the element is on bottom.
 	jse.executeScript("arguments[0].click();", update);
 	//update.click();
 	
-	return msg.getText();
+	//return msg.getText();
+	return gu.getElementText(msg);
+}
+public String imageuploading(String s) throws AWTException, InterruptedException
+{
+	clickManageEx();
+	gu.getClickElement(changebutton);
+	
+	fl=new FileHandling();
+	fl.fileUpload(s,choosefile,driver);
+	update.click();
+	
+	return gu.getElementText(msg);
+	
 }
 }

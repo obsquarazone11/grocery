@@ -4,9 +4,9 @@
 		<parameter name="Browser" value="chrome"></parameter>
 		
 		<classes>
-			<class name="testcases.ManageordersPage">
+			<class name="testcases.ManageExpensePage">
 			<methods>
-        <include name="listcompare"/>
+        <include name="imageuputilities"/>
         
         </methods>
 			</class>

@@ -42,17 +42,21 @@ public class LoginPage {
 	WebElement profileName;
 	
 	public void getUserName(String username) {
-		userName.sendKeys(username);
+		//userName.sendKeys(username);
+		gu.sendKey(userName,username);
 	}
 	
 
 	
 	public void getPassWord(String password1) {
-		password.sendKeys(password1);
+		//password.sendKeys(password1);
+		gu.sendKey(password,password1);
+		
 	}
 
 	public void clickSignin() {
-	signin.click();
+	//signin.click();
+	gu.getClickElement(signin);
 		
 	}
 
@@ -62,9 +66,12 @@ public class LoginPage {
 		//using general utility
 		return gu.getElementText(profileName);
 	}
+		
 	public List<String> getLoginDetails() {
 		excelUtility = new ExcelRead();
-		List<String> excelList = excelUtility.readDataFromExcel("Sheet1");
+		String p = System.getProperty("user.dir") + "//src//main//resources//Excelfiles//Testdata.xlsx";
+
+				List<String> excelList = excelUtility.readDataFromExcel("Sheet1",p);
 		return excelList;
 	}
 	 public boolean getRememberMe()
@@ -73,6 +80,7 @@ public class LoginPage {
 		 return gu.isSelectable(verificationOfRememberCheckBox);
 	 }
 
+	 
 
 
 	

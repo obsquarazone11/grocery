@@ -18,6 +18,7 @@ import elementrepository.LoginPage;
 
 import java.io.FileInputStream;
 import utilities.Screenshotcapture;
+import utilities.Synchronisation;
 
 public class BaseClass {
 	WebDriver driver;
@@ -50,27 +51,27 @@ public class BaseClass {
 		 * System.getProperty("user.dir") + prop.getProperty("edgeDriverPath")); driver
 		 * = new EdgeDriver(); }
 		 */
-			
+
 		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
-		
+
 		driver.manage().window().maximize();
 		Thread.sleep(3000);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
-		
+		 Synchronisation s=new  Synchronisation();
+		s.implicitWait(driver,10);
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
 	}
 
 	@AfterMethod
-	
+
 	public void aftermethod(ITestResult iTestResult) throws IOException {
 
 		if (iTestResult.getStatus() == iTestResult.FAILURE) {
 			sc = new Screenshotcapture();
-			sc.Screenshotcapturefunc(driver, iTestResult.getName());//pass control of driver and function name also
+			sc.Screenshotcapturefunc(driver, iTestResult.getName());// pass control of driver and function name also
 
 		}
 		driver.close();
 
-	
 	}
 }

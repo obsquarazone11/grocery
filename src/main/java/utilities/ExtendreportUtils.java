@@ -3,6 +3,7 @@ import java.io.File;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -47,7 +48,7 @@ public class ExtendreportUtils implements ITestListener {
 		reports.attachReporter(sparkReporter);
 
 		// System details
-		reports.setSystemInfo("PC Name", "Jyothi");
+		reports.setSystemInfo("PC Name", "Chithra");
 		reports.setSystemInfo("OS", "Windows 10");
 		
 		
@@ -69,6 +70,7 @@ public class ExtendreportUtils implements ITestListener {
 		test.log(Status.FAIL,
 				MarkupHelper.createLabel("Name of the Failed Test Case is : " + result.getName(), ExtentColor.RED));
 
+		
 	}
 
 	public void onTestSkipped(ITestResult result) {

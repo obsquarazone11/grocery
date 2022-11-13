@@ -7,81 +7,18 @@
   <test thread-count="5" name="My Test(failed)">
     <parameter name="Browser" value="chrome"/>
     <classes>
-      <class name="testcases.ManageLocationPage">
-        <methods>
-          <include name="manageStatusVerrification"/>
-          <include name="amountVerrification"/>
-          <include name="beforemethod"/>
-          <include name="aftermethod"/>
-          <include name="manageState"/>
-        </methods>
-      </class> <!-- testcases.ManageLocationPage -->
-      <class name="testcases.ManagePushNotificationPage">
-        <methods>
-          <include name="pnotificationmsgverrification"/>
-          <include name="titleVerrification"/>
-          <include name="testexcelmessageVerrification"/>
-          <include name="manageBgcolorVerrification"/>
-          <include name="beforemethod"/>
-          <include name="aftermethod"/>
-          <include name="pTextVerrification"/>
-        </methods>
-      </class> <!-- testcases.ManagePushNotificationPage -->
       <class name="testcases.ManageMobileSilder">
         <methods>
           <include name="statusVerification"/>
-          <include name="imageVerrification"/>
           <include name="beforemethod"/>
-          <include name="textVerification"/>
-          <include name="wrongImageVerrification"/>
           <include name="aftermethod"/>
         </methods>
       </class> <!-- testcases.ManageMobileSilder -->
-      <class name="testcases.DashBoardTestCases">
-        <methods>
-          <include name="colorverification"/>
-          <include name="profNameVerrification"/>
-          <include name="beforemethod"/>
-          <include name="aftermethod"/>
-        </methods>
-      </class> <!-- testcases.DashBoardTestCases -->
-      <class name="testcases.LoginTestCase">
-        <methods>
-          <include name="verifyCheckBox"/>
-          <include name="beforemethod"/>
-          <include name="verifyLoggedUsers"/>
-          <include name="aftermethod"/>
-          <include name="excelverifyLoggedUsers"/>
-        </methods>
-      </class> <!-- testcases.LoginTestCase -->
-      <class name="testcases.ManageExpensePage">
-        <methods>
-          <include name="imageHandling"/>
-          <include name="callenderHandling"/>
-          <include name="beforemethod"/>
-          <include name="aftermethod"/>
-          <include name="manageResetButtonColorCheck"/>
-          <include name="manageNewButtonTextCheck"/>
-        </methods>
-      </class> <!-- testcases.ManageExpensePage -->
-      <class name="testcases.ManageordersPage">
-        <methods>
-          <include name="listsortingchecking"/>
-          <include name="beforemethod"/>
-          <include name="payamentSelection"/>
-          <include name="listcompare"/>
-          <include name="aftermethod"/>
-          <include name="chkElementsStatus"/>
-        </methods>
-      </class> <!-- testcases.ManageordersPage -->
       <class name="testcases.ManageDeliveryBoyPage">
         <methods>
-          <include name="verifyingResetButtonColor"/>
           <include name="passwordNameValidation"/>
           <include name="beforemethod"/>
           <include name="aftermethod"/>
-          <include name="passwordToolTipValidation"/>
-          <include name="searchnameVallidation"/>
         </methods>
       </class> <!-- testcases.ManageDeliveryBoyPage -->
     </classes>

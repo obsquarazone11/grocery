@@ -60,6 +60,11 @@ public String getStylePropertyvalidation(WebElement element,String att)
 			select1.selectByValue(value);
 
 		}
+		public void selectFuncbyViText(WebElement element, String visisbletext) {
+			Select select1 = new Select(element);
+			select1.selectByVisibleText(visisbletext);
+
+		}
 
 		public String selectFuncbyVisibletext(WebElement element, String visisbletext) {
 			Select select = new Select(element);
@@ -82,11 +87,11 @@ public String getStylePropertyvalidation(WebElement element,String att)
 			return op;
 
 		}
-		List<String> list=new ArrayList<String>();
-		public List<String> addList(String s)
+		List<String> list=new ArrayList();
+		public List<String> addList(List<String>list,String s)
 		{
 			
-	list.add(s);
+	      list.add(s);
 			return list;
 		}
 		public void alertHandlingaccept(WebDriver driver) {

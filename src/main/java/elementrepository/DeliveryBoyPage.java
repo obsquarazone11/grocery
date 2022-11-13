@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.GeneralUtilities;
 public class DeliveryBoyPage {
 WebDriver driver;
-
+GeneralUtilities gu=new GeneralUtilities();
 	public DeliveryBoyPage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -36,30 +36,49 @@ WebDriver driver;
 	WebElement searchname;
 	public String rebuttonColorCheck()
 {
-		manageDboy.click();
+		//manageDboy.click();
+		gu.getClickElement(manageDboy);
 		
-return resetbutton.getCssValue("background-color");
+//return resetbutton.getCssValue("background-color");
+		return gu.getStylePropertyvalidation(resetbutton,"background-color");
 		}
 	public String tooltipValidation() throws InterruptedException
 	{
-			manageDboy.click();
-			Thread.sleep(3000);
+			//manageDboy.click();
+		gu.getClickElement(manageDboy);
+			//Thread.sleep(3000);
+		gu.mediumDelay(3000);
 			//password.click();
-	return  password.getAttribute("title");
+	//return  password.getAttribute("title");
+			return gu.getToolTip(password);
 			}
 	public String nameVerification()
 	{
-			manageDboy.click();
-			password.click();
-			showpassword.click();
-	return  showpassword.getText();
+			//manageDboy.click();
+		gu.getClickElement(manageDboy);
+			//password.click();
+		gu.getClickElement(password);
+			//showpassword.click();
+		gu.getClickElement(showpassword);
+	//return  showpassword.getText();
+		return gu.getElementText(showpassword);
 			}
 	public String nameVallidation()
 	{
-		manageDboy.click();
-		searchbutton.click();
-		email.sendKeys("megha.123@gmail.com");
-		searchbutton2.click();
-		return searchname.getText();
+		//manageDboy.click();
+		gu.getClickElement(manageDboy);
+		//searchbutton.click();
+		gu.getClickElement(searchbutton);
+		gu.sendKey(email,"megha.123@gmail.com");
+		//email.sendKeys("megha.123@gmail.com");
+		//searchbutton2.click();
+		gu.getClickElement(searchbutton2);
+		//return searchname.getText();
+		return gu.getElementText(searchname);
 	}
+	public boolean searchbuttonClickable()
+	{
+		gu.getClickElement(manageDboy);
+	return gu.isClickable(searchbutton);
+}
 }

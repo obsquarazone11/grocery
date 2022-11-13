@@ -24,7 +24,7 @@ public class DashBardPage {
 	public String gettingCssvalue() 
 	{
 		//home.click();
-		gu.getClickElement(home);
+		//gu.getClickElement(home);
 	//return home.getCssValue("color");
 	return gu.getStylePropertyvalidation(home,"color");
 	
@@ -32,7 +32,7 @@ public class DashBardPage {
 	public String verrifyprofile()
 	{
 		//logname.click();
-		gu.getClickElement(logname);
+		//gu.getClickElement(logname);
 		return gu.getElementText(logname);
 		//return logname.getText();
 	}
