@@ -15,11 +15,13 @@ import org.testng.asserts.SoftAssert;
 import constants.Constant;
 import elementrepository.LoginPage;
 import elementrepository.ManageExpense;
+import utilities.GeneralUtilities;
 
 public class ManageExpensePage extends BaseClass {
 
 	LoginPage lp;
 	ManageExpense mp;
+	GeneralUtilities gu = new GeneralUtilities();
 
 	@Test
 	public void manageResetButtonColorCheck() {
@@ -27,7 +29,7 @@ public class ManageExpensePage extends BaseClass {
 		lp.presteps();
 		mp = new ManageExpense(driver);
 		String actual = mp.searchButtonColorCheck();
-		System.out.println(actual);
+
 		String expected = "rgba(255, 255, 255, 1)";
 		Assert.assertEquals(actual, expected, Constant.bgcolorerrormsg);
 	}
@@ -37,19 +39,17 @@ public class ManageExpensePage extends BaseClass {
 		lp = new LoginPage(driver);
 		lp.presteps();
 		mp = new ManageExpense(driver);
-		Thread.sleep(4000);
+		gu.mediumDelay(3000);
 		String actual = mp.newButtonTextCheck();
 		System.out.println(actual);
 		String expected = "New";
 		Assert.assertEquals(actual, expected, Constant.titleErrormsg);
 	}
 
-	
-	
 	/*
 	 * @Test public void callenderHandling() { lp=new LoginPage(driver);
 	 * lp.presteps(); mp=new ManageExpense(driver); boolean
-	 * actual=mp.calenderfunction("2022","July","20");
+	 * actual=mp.calenderfunction("2023","July","20");
 	 * 
 	 * boolean expected=true; Assert.assertEquals(actual,expected,"no match"); }
 	 */
@@ -62,24 +62,24 @@ public class ManageExpensePage extends BaseClass {
 
 		String path = System.getProperty("user.dir") + "//src//main//resources//images//Screenshot (2).png";
 		String actual = mp.imageUpload(path);
-		System.out.println(actual);
+
 		String expected = "×/n" + "Alert!/n" + " Expense Record Updated Successfully";
 		Assertion softAssert = new SoftAssert();
-		softAssert.assertEquals(actual, expected,Constant.titleErrormsg);
+		softAssert.assertEquals(actual, expected, Constant.titleErrormsg);
 
 	}
+
 	@Test
-	public void imageuputilities() throws AWTException, InterruptedException
-	{
+	public void imageuputilities() throws AWTException, InterruptedException {
 		lp = new LoginPage(driver);
 		lp.presteps();
 		mp = new ManageExpense(driver);
-		//String path = System.getProperty("user.dir") + prop.getProperty("imgPath1");
-		String path = System.getProperty("user.dir") + "//src//main//resources//images//Screenshot (2).png";
-		String actual=mp.imageuploading(path);
-		System.out.println(actual);
+		String path = System.getProperty("user.dir") + prop.getProperty("imgPath1");
+
+		String actual = mp.imageuploading(path);
+
 		String expected = "×/n" + "Alert!/n" + " Expense Record Updated Successfully";
 		Assertion softAssert = new SoftAssert();
-		softAssert.assertEquals(actual, expected,Constant.titleErrormsg);
-}
+		softAssert.assertEquals(actual, expected, Constant.titleErrormsg);
+	}
 }

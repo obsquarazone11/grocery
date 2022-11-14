@@ -17,7 +17,7 @@ public class LoginTestCase extends BaseClass {
 
 	@DataProvider(name = "data")
 	public Object[][] getUserData() {
-		// return new Object[][] { { "admin", "admin" }, { "admin2", "admin3" }};//for
+		// return new Object[][] { { "admin", "admin" }, { "admin2", "admin3" }};//for//
 		// pass
 		return new Object[][] { { "admin", "admin" } };
 	}
@@ -31,10 +31,7 @@ public class LoginTestCase extends BaseClass {
 		lp.getPassWord(Password);
 		lp.clickSignin();
 
-		// lp.presteps();
-
 		String actual = lp.profileVerification();
-		System.out.println(actual);
 		String expected = "Admin";
 		Assert.assertEquals(expected, actual, Constant.nameerrormsg);
 
@@ -42,7 +39,7 @@ public class LoginTestCase extends BaseClass {
 
 	// @Test(retryAnalyzer = retryTest.RetryAnalyzer.class)
 	@Test
-	public void excelverifyLoggedUsers() {
+	public void verifyLoggedUsers() {
 		lp = new LoginPage(driver);
 
 		// Test data from excel file stored in this list
@@ -53,12 +50,21 @@ public class LoginTestCase extends BaseClass {
 
 		lp.clickSignin();
 
-		// lp.presteps();
-
 		String actual = lp.profileVerification();
-		System.out.println(actual);
+
 		String expected = "Admin";
 		// String expected = "Admin2";
+		Assert.assertEquals(expected, actual, Constant.titleErrormsg);
+
+	}
+
+	@Test
+	public void directverifyLoggedUsers() {
+		lp = new LoginPage(driver);
+		lp.presteps();
+		String actual = lp.profileVerification();
+
+		String expected = "Admin";
 		Assert.assertEquals(expected, actual, Constant.titleErrormsg);
 
 	}
@@ -67,7 +73,7 @@ public class LoginTestCase extends BaseClass {
 	public void verifyCheckBox() throws InterruptedException {
 		lp = new LoginPage(driver);
 		boolean actual = lp.getRememberMe();
-		System.out.println(actual);
+
 		boolean expected = false;
 		Assert.assertEquals(actual, expected, Constant.SelectionError);
 	}

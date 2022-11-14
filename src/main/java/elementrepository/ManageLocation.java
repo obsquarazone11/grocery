@@ -46,9 +46,9 @@ public class ManageLocation {
 	WebElement listtittle;
 
 	public String stateEdition() {
-		// manageloc.click();
+
 		gu.getClickElement(manageloc);
-		// edit.click();
+
 		gu.getClickElement(edit);
 		gu.getClickElement(dropdp);
 		gu.selectFuncbyViText(dropdp, "United Kingdom");
@@ -58,31 +58,7 @@ public class ManageLocation {
 		gu.sendKey(charge, "1000");
 		gu.getClickElement(update);
 		return gu.getElementText(alert);
-		/*
-		 * dropdp.click(); Select s=new Select(dropdp);
-		 * s.selectByVisibleText("United Kingdom"); Select s1=new Select(dropdownp);
-		 * s1.selectByVisibleText("Bristol"); loc.clear();
-		 * 
-		 * loc.sendKeys("kerala"); charge.sendKeys("1000");
-		 * 
-		 * update.click(); return alert.getText();
-		 */
-	}
 
-	public String amoundverrification() {
-		//manageloc.click();
-		gu.getClickElement(manageloc);
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("scroll(0, 250)");
-		//return amt.getText();
-		return gu.getElementText(amt);
-	}
-
-	public String statusVerrification() {
-		//manageloc.click();
-		//return status.getText();
-		gu.getClickElement(manageloc);
-		return gu.getElementText(status);
 	}
 
 	public String listTittleVerrification() {

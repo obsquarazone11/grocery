@@ -70,6 +70,7 @@ public class ManageOrders {
 		li = gu.addList(li, "Out For Delivery");
 		return li;
 	}
+
 	public boolean compStringToStrList(String s) {
 		boolean flag = false;
 		gu.getClickElement(morders);
@@ -87,14 +88,13 @@ public class ManageOrders {
 		}
 		return flag;
 
-		}
-
+	}
 
 	public String listSelectedvalue(String s) {
 		gu.getClickElement(morders);
 		gu.getClickElement(search);
-		String selected=gu.selectFuncbyVisibletext(dropdwn2, s);
-		//String selected = gu.FirstSelectedOption(dropdwn2);
+		String selected = gu.selectFuncbyVisibletext(dropdwn2, s);
+
 		gu.getClickElement(search2);
 
 		return selected;

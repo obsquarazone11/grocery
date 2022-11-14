@@ -46,10 +46,9 @@ public class ManageordersPage extends BaseClass {
 		lp = new LoginPage(driver);
 		lp.presteps();
 		mo = new ManageOrders(driver);
-		boolean actual=mo.compStringToStrList(value);
-		boolean exp=true;
-		Assert.assertEquals(actual,exp,Constant.SelectError);
-		
+		boolean actual = mo.compStringToStrList(value);
+		boolean exp = true;
+		Assert.assertEquals(actual, exp, Constant.SelectError);
 
 	}
 
@@ -60,10 +59,10 @@ public class ManageordersPage extends BaseClass {
 		lp.presteps();
 		mo = new ManageOrders(driver);
 		List<String> actual = mo.getList();
-		System.out.println(actual);
+		// System.out.println(actual);
 
 		List<String> exp = mo.strlistvalue();
-		System.out.println(exp);
+		// System.out.println(exp);
 
 		if (actual.size() == exp.size()) {
 			for (int i = 0; i < exp.size(); i++) {

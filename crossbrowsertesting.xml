@@ -4,7 +4,7 @@
 		<parameter name="Browser" value="chrome"></parameter>
 		
 		<classes>
-			<class name="testcases.ManageordersPage">
+			<class name="testcases.LoginTestCase">
 			</class>
 		</classes>
 		
@@ -13,7 +13,7 @@
 		<parameter name="Browser" value="edge"></parameter>
 		
 		<classes>
-		<class name="testcases.ManageordersPage">
+		<class name="testcases.LoginTestCase">
 			</class>
 		</classes>
 		

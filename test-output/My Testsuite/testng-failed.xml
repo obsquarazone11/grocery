@@ -6,8 +6,8 @@
     <classes>
       <class name="testcases.ManageExpensePage">
         <methods>
+          <include name="callenderHandling"/>
           <include name="beforemethod"/>
-          <include name="imageuputilities"/>
           <include name="aftermethod"/>
         </methods>
       </class> <!-- testcases.ManageExpensePage -->

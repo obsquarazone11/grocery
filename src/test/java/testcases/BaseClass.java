@@ -44,13 +44,15 @@ public class BaseClass {
 
 			driver = new ChromeDriver();
 		}
-		/*
-		 * else if (browser.equals("edge")) { testBasic();
-		 * 
-		 * System.setProperty(prop.getProperty("edgeBrowserDriver"),
-		 * System.getProperty("user.dir") + prop.getProperty("edgeDriverPath")); driver
-		 * = new EdgeDriver(); }
-		 */
+		
+		  else if (browser.equals("edge"))
+		  { testBasic();
+		 
+		  System.setProperty(prop.getProperty("edgeBrowserDriver"),
+		  System.getProperty("user.dir") + prop.getProperty("edgeDriverPath")); 
+		  driver= new EdgeDriver();
+		  }
+		 
 
 		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
 

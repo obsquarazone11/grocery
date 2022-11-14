@@ -6,7 +6,7 @@
 		<classes>
 			<class name="testcases.ManageExpensePage">
 			<methods>
-        <include name="imageuputilities"/>
+        <include name="callenderHandling"/>
         
         </methods>
 			</class>
